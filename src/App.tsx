@@ -12,7 +12,8 @@ function App() {
   const [currentWord, setCurrentWord] = useState(["w", "o", "r", "d"]);
   const [choosenLetter, setChoosenLetter] = useState<string[]>([]);
   const [count, setCount] = useState(0);
-  const [turn, setTurn] = useState(0);
+  const [turn, setTurn] = useState(1);
+  // const [turn2, setTurn2] = useState(0);
 
   const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
@@ -20,7 +21,8 @@ function App() {
     setCurrentWord(["w", "o", "r", "d"]);
     setChoosenLetter([]);
     setCount(0);
-    setTurn(0);
+    setTurn(1);
+    // setTurn2(0);
       
 
   }
@@ -59,13 +61,7 @@ function App() {
       return "letter-choosen "
     }
   }
-  const newGameStyling = (): string => {
-    if (count === 9) {
-      return "new-game "
-    } else {
-      return "new-game none"
-    }
-  }
+  
   const manChangeStyling = () => {
     if (count === 0) {
       return "./image/90.png"
@@ -100,10 +96,17 @@ function App() {
   }
 
   
-	
-  // 
-
-
+const areAllLettersChosen = currentWord.every(letter => choosenLetter.includes(letter));
+const [includes, setIncludes] = useState(false);
+useEffect (() => {
+  if (areAllLettersChosen) {
+        console.log("Всі вибрані літери є в currentWord");
+        setIncludes(true);
+      } else {
+        console.log("Не всі вибрані літери є в currentWord");
+        setIncludes(false);
+      }
+},[choosenLetter])
 
   return (
     <div className="App">
@@ -119,19 +122,22 @@ function App() {
           <Route path="/PlayZone2" element={<PlayZone2
             currentWord={currentWord} count={count} letterStyling={letterStyling} btnStyling={btnStyling} alphabet={alphabet} choosenLeters={choosenLeters} manChangeStyling={manChangeStyling} 
             setTurn = {setTurn} turn={turn}
-            choosenLetter = {choosenLetter}
+            choosenLetter = {choosenLetter} 
+            // includes = {includes}
             
           />} />
 
           <Route path="/PlayZone3" element={<PlayZone3
             currentWord={currentWord} count={count} letterStyling={letterStyling} btnStyling={btnStyling} alphabet={alphabet} choosenLeters={choosenLeters} manChangeStyling={manChangeStyling} 
             setTurn = {setTurn} turn={turn}
-            choosenLetter = {choosenLetter}
+            choosenLetter = {choosenLetter} 
+            // includes = {includes}
           />} /> 
           <Route path="/PlayZone4" element={<PlayZone4
           currentWord={currentWord} count={count} letterStyling={letterStyling} btnStyling={btnStyling} alphabet={alphabet} choosenLeters={choosenLeters} manChangeStyling={manChangeStyling} 
           setTurn = {setTurn} turn={turn}
-          choosenLetter = {choosenLetter}
+          choosenLetter = {choosenLetter} 
+          // includes = {includes}
           />} /> 
 
         </Routes>
@@ -139,8 +145,8 @@ function App() {
 
 
 
-      <div className={newGameStyling()}>
-        <h2 className="new-game__tittle">You lused</h2>
+      <div className={count === 9 || includes  ? "new-game " : "new-game none" }>
+        {count === 9 ? <h2 className="new-game__tittle">You lused</h2>:<h2 className="new-game__tittle">The winner is player{turn - 1}!</h2>}
         <button className="new-game-btn"
           onClick={() => newGame()}>
 
