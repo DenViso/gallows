@@ -1,51 +1,80 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import PlayZone from "./components/PlayZone";
-import PlayZone2 from "./components/PlayZone 2";
-import PlayZone3 from "./components/PlayZone 3";
-import PlayZone4 from "./components/PlayZone 4";
 
+import { useState, useEffect } from "react";
 import StartPage from "./components/StartPage";
+import PlayZone from "./components/PlayZone";
+// import PlayZone2 from "./components/PlayZone 2";
+// import PlayZone3 from "./components/PlayZone 3";
+// import PlayZone4 from "./components/PlayZone 4";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [currentWord, setCurrentWord] = useState(["w", "o", "r", "d"]);
   const [choosenLetter, setChoosenLetter] = useState<string[]>([]);
+  const [choosePlayer, setChoosePlayer] = useState(0);
   const [count, setCount] = useState(0);
   const [turn, setTurn] = useState(1);
-  // const [turn2, setTurn2] = useState(0);
+  const [player, setPlayer] = useState(4);
+  const [includes, setIncludes] = useState(false);
+  //  const [frezzed, setFrezzed] = useState(turn === 1);
 
-  const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
 
   const newGame = () => {
     setCurrentWord(["w", "o", "r", "d"]);
     setChoosenLetter([]);
     setCount(0);
     setTurn(1);
-    // setTurn2(0);
-      
-
+    setPlayer(4);
+    setIncludes(false);
   }
 
+  console.log(count);
+  console.log(turn);
+  console.log(player);
+  console.log(includes);
+  console.log(choosePlayer);
 
+
+  const changeCurrentPlayer = () => {
+    if (turn < player) {
+      setTurn((prevTurn) => prevTurn + 1);
+    } else if (turn === player) {
+      return setTurn(1);
+    }
+  };
 
   const choosenLeters = (letter: string): void => {
     if (count === 9) {
       return;
     }
     if (choosenLetter.includes(letter)) {
-      return
+      return;
     }
     if (!currentWord.includes(letter)) {
-
-      setCount(preevCount => preevCount + 1);
+      setCount((preevCount) => preevCount + 1);
+      changeCurrentPlayer();
     }
-    setChoosenLetter(preevLetters => {
-      return [...preevLetters, letter]
+    setChoosenLetter((preevLetters) => {
+      return [...preevLetters, letter];
     });
+  };
+
+  const createPlayers = () => {
+    let button = [];
+    for (let i = 0; i < choosePlayer; i++) {
+      button.push(
+        <button
+          key={i}
+          id={"" + i}
+          className={
+            turn === i + 1
+              ? `btn-2 p${i + 1} active`
+              : `btn-2 p${i + 1}`}>
+          {i + 1} player
+        </button>)
+    }
+    return button
   }
-
-
   // STYLING
   const letterStyling = (l: string): string => {
     if (choosenLetter.includes(l)) {
@@ -61,7 +90,6 @@ function App() {
       return "letter-choosen "
     }
   }
-  
   const manChangeStyling = () => {
     if (count === 0) {
       return "./image/90.png"
@@ -95,68 +123,63 @@ function App() {
     }
   }
 
-  
-const areAllLettersChosen = currentWord.every(letter => choosenLetter.includes(letter));
-const [includes, setIncludes] = useState(false);
-useEffect (() => {
-  if (areAllLettersChosen) {
-        console.log("Всі вибрані літери є в currentWord");
-        setIncludes(true);
-      } else {
-        console.log("Не всі вибрані літери є в currentWord");
-        setIncludes(false);
-      }
-},[choosenLetter])
+  const areAllLettersChosen = currentWord.every(letter => choosenLetter.includes(letter));
+
+  useEffect(() => {
+    if (areAllLettersChosen) {
+
+      setIncludes(true);
+    } else {
+
+      setIncludes(false);
+    }
+  }, [choosenLetter])
 
   return (
     <div className="App">
 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<StartPage />} />
+          <Route path="/" element={<StartPage
+            setChoosePlayer={setChoosePlayer}
+            choosePlayer={choosePlayer}
+            setPlayer={setPlayer}
+          // newGame = {newGame}
+          />} />
 
           <Route path="/PlayZone" element={<PlayZone
-            currentWord={currentWord} count={count} letterStyling={letterStyling} btnStyling={btnStyling} alphabet={alphabet} choosenLeters={choosenLeters} manChangeStyling={manChangeStyling}
+            currentWord={currentWord}
+            count={count}
+            letterStyling={letterStyling}
+            btnStyling={btnStyling}
+            newGame={newGame}
+            choosenLeters={choosenLeters}
+            manChangeStyling={manChangeStyling}
+            setChoosenLetter={setChoosenLetter}
+            choosenLetter={choosenLetter}
+            changeCurrentPlayer={changeCurrentPlayer}
+            setCount={setCount}
+            setTurn={setTurn}
+            player={player}
+            turn={turn}
+            createPlayers={createPlayers}
           />} />
-
-          <Route path="/PlayZone2" element={<PlayZone2
-            currentWord={currentWord} count={count} letterStyling={letterStyling} btnStyling={btnStyling} alphabet={alphabet} choosenLeters={choosenLeters} manChangeStyling={manChangeStyling} 
-            setTurn = {setTurn} turn={turn}
-            choosenLetter = {choosenLetter} 
-            // includes = {includes}
-            
-          />} />
-
-          <Route path="/PlayZone3" element={<PlayZone3
-            currentWord={currentWord} count={count} letterStyling={letterStyling} btnStyling={btnStyling} alphabet={alphabet} choosenLeters={choosenLeters} manChangeStyling={manChangeStyling} 
-            setTurn = {setTurn} turn={turn}
-            choosenLetter = {choosenLetter} 
-            // includes = {includes}
-          />} /> 
-          <Route path="/PlayZone4" element={<PlayZone4
-          currentWord={currentWord} count={count} letterStyling={letterStyling} btnStyling={btnStyling} alphabet={alphabet} choosenLeters={choosenLeters} manChangeStyling={manChangeStyling} 
-          setTurn = {setTurn} turn={turn}
-          choosenLetter = {choosenLetter} 
-          // includes = {includes}
-          />} /> 
 
         </Routes>
       </BrowserRouter>
 
+      <div className={count === 9 || includes ? "new-game " : "new-game none"}>
+        {count === 9
+          ? <h2 className="new-game__tittle">You lused</h2>
+          : <h2 className="new-game__tittle">The winner is player {turn} !</h2>}
 
-
-      <div className={count === 9 || includes  ? "new-game " : "new-game none" }>
-        {count === 9 ? <h2 className="new-game__tittle">You lused</h2>:<h2 className="new-game__tittle">The winner is player{turn - 1}!</h2>}
-        <button className="new-game-btn"
+        <button
+          className="new-game-btn"
           onClick={() => newGame()}>
-
           New game
         </button>
 
       </div>
-
-
-
 
     </div>
   )

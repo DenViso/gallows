@@ -7,9 +7,9 @@
 
 .App {
 	width: 100%;
-	height:100vh;
-	
-position:relative;
+	height: 100vh;
+
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -21,25 +21,23 @@ position:relative;
 }
 
 .wrapper {
-	width: 70%;
+	width: 65%;
+	height: 350px;
 	margin: 0 auto;
-position:relative;
-bottom: -164px;
-
+	position: absolute;
+	bottom: 0px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	
 }
 
 .word-section {
 	width: 90%;
-margin: 10px;
+	margin: 20px;
 	display: flex;
-	align-items: center;
+	/* align-items: center; */
 	justify-content: center;
 	gap: 20px;
-
 	/* background-color: rgb(45, 38, 39); */
 }
 
@@ -63,7 +61,6 @@ margin: 10px;
 	gap: 10px;
 
 	width: 100%;
-
 
 	font-size: 32px;
 }
@@ -112,8 +109,8 @@ margin: 10px;
 	z-index: 1;
 	padding: 0px 0px 100px;
 }
-.new-game.none{
-  display: none;
+.new-game.none {
+	display: none;
 }
 .new-game__tittle {
 	font-size: 52px;
@@ -131,47 +128,41 @@ margin: 10px;
 	text-shadow: 1px 7px 3px rgba(46, 42, 42, 0.481);
 	cursor: pointer;
 }
-.pic{
-  position: absolute;
-  top:-370px;
-  width: 25vw;
- 
+.pic {
+	position: absolute;
+	top: -380px;
+	width: 23vw;
 	z-index: 2;
-	border-radius: 20px;
-
+	border-radius: 18px;
 }
-.man{
-	position:relative;
+.man {
+	position: relative;
 	width: 100%;
 	height: 47vh;
-	
-	border-radius: 20px ;
-}
 
+	border-radius: 20px;
+}
 
 /* Startpage Styling */
 
-.btn{
+.btn {
 	width: 80%;
-	
 
-	margin:auto;
+	margin: auto;
 	flex-direction: column;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	
+
 	margin: 0 auto;
 }
-.btn-conteiner{
+.btn-conteiner {
 	width: 100%;
-	
 
 	display: flex;
 	align-items: center;
-justify-content: space-between;
-flex-wrap: wrap;
-
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .pl {
@@ -180,38 +171,37 @@ flex-wrap: wrap;
 	width: 30%;
 	padding: 10px 20px;
 
-	font-family:'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 	font-size: 30px;
 	font-weight: bold;
 	border: 2px solid rgba(255, 253, 253, 0.211);
 	text-align: center;
 	border-radius: 20px;
-	
+
 	background-color: inherit;
 	color: rgba(255, 253, 253, 0.224);
-
 }
 
-.pl:hover{
-cursor: pointer;
-box-shadow: 0px 0px 47px rgba(251, 252, 252, 0.8);
-text-shadow: 8px 8px 47px  rgba(14, 14, 14, 0.8);
-color: white;
-border: 2px solid white;
-}
-.pl.active{
+.pl:hover {
 	cursor: pointer;
 	box-shadow: 0px 0px 47px rgba(251, 252, 252, 0.8);
-	text-shadow: 8px 8px 47px  rgba(14, 14, 14, 0.8);
+	text-shadow: 8px 8px 47px rgba(14, 14, 14, 0.8);
+	color: white;
+	border: 2px solid white;
+}
+.pl.active {
+	cursor: pointer;
+	box-shadow: 0px 0px 47px rgba(251, 252, 252, 0.8);
+	text-shadow: 8px 8px 47px rgba(14, 14, 14, 0.8);
 	color: white;
 	border: 2px solid white;
 }
 
-.start{
+.start {
 	width: 30%;
 	padding: 10px 20px;
 
-	font-family:'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 	font-size: 30px;
 	font-weight: bold;
 	border: 2px solid rgba(255, 253, 253, 0.211);
@@ -222,17 +212,15 @@ border: 2px solid white;
 	color: rgba(255, 253, 253, 0.224);
 }
 
-.start:hover{
-
+.start:hover {
 	cursor: pointer;
-box-shadow: 0px 0px 47px rgba(251, 252, 252, 0.8);
-text-shadow: 8px 8px 47px  rgba(14, 14, 14, 0.8);
-color: white;
-border: 2px solid white;
+	box-shadow: 0px 0px 47px rgba(251, 252, 252, 0.8);
+	text-shadow: 8px 8px 47px rgba(14, 14, 14, 0.8);
+	color: white;
+	border: 2px solid white;
 }
 
-
-.player2{
+.player2 {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -244,50 +232,65 @@ border: 2px solid white;
 	position: relative;
 	top: -330px;
 }
-.btn-2{
+.btn-2 {
 	width: 100px;
 	height: 40px;
 	background: rgba(0, 0, 0, 0.344);
 	border: none;
 	border-radius: 10px;
-	font-family:'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 	font-size: 20px;
 	font-weight: bold;
 	padding: 5px 10;
-	
 }
 
-.p1{
+.p1 {
 	position: absolute;
-	top:0px;
-
+	top: 0px;
 }
-.p2{
+.p2 {
 	position: absolute;
-	top:0px;
+	top: 0px;
 	right: 0px;
 }
-.p3{
+.p3 {
 	position: absolute;
-	top:80px;
-
+	top: 80px;
 }
-.p4{
+.p4 {
 	position: absolute;
-	top:80px;
+	top: 80px;
 	right: 0px;
 }
 
-
-.btn-2.active{
+.btn-2.active {
 	width: 100px;
 	height: 40px;
 	background: rgba(146, 145, 145, 0.344);
 	box-shadow: 0px 0px 33px white;
 	border: none;
 	border-radius: 10px;
-	font-family:'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 	font-size: 20px;
 	font-weight: bold;
 	padding: 5px 10;
+}
+
+.back {
+	width: 100px;
+	position: relative;
+	top: -128px;
+	left: -400px;
+
+	margin: 10%;
+	width: 30%;
+	padding: 10px 20px;
+	font-family: "Roboto", sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+	border: 2px solid rgba(255, 253, 253, 0.211);
+	text-align: center;
+	border-radius: 20px;
+	background-color: inherit;
+	color: rgba(255, 253, 253, 0.224);
 }
