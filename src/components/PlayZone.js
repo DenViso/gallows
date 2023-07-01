@@ -1,11 +1,41 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+const alphabet = [
+	"a",
+	"b",
+	"c",
+	"d",
+	"e",
+	"f",
+	"g",
+	"h",
+	"i",
+	"j",
+	"k",
+	"l",
+	"m",
+	"n",
+	"o",
+	"p",
+	"q",
+	"r",
+	"s",
+	"t",
+	"u",
+	"v",
+	"w",
+	"x",
+	"y",
+	"z",
+];
 
 const PlayZone = ({
 	currentWord,
 	count,
 	letterStyling,
 	btnStyling,
-  newGame,
+	newGame,
 	manChangeStyling,
 	setChoosenLetter,
 	choosenLetter,
@@ -13,39 +43,19 @@ const PlayZone = ({
 	player,
 	turn,
 	setTurn,
-  changeCurrentPlayer,
+	changeCurrentPlayer,
 	createPlayers,
 	choosenLeters,
+	choosePlayer,
 }) => {
 
-	const alphabet = [
-		"a",
-		"b",
-		"c",
-		"d",
-		"e",
-		"f",
-		"g",
-		"h",
-		"i",
-		"j",
-		"k",
-		"l",
-		"m",
-		"n",
-		"o",
-		"p",
-		"q",
-		"r",
-		"s",
-		"t",
-		"u",
-		"v",
-		"w",
-		"x",
-		"y",
-		"z",
-	];
+	const nav = useNavigate();
+
+	useEffect(() => {
+		if (choosePlayer === 0) {
+			nav ("/");
+		}
+	}, []);
 
 	return (
 		<div className="wrapper">
@@ -85,10 +95,10 @@ const PlayZone = ({
 					<img src={manChangeStyling()} alt="" className="man" />
 				</div>
 			</div>
-      <Link 
-      className="back" 
-      to="/" 
-      // onClick={() => newGame()}
+			<Link
+				className="back"
+				to="/"
+				// onClick={() => newGame()}
 			>
 				Back
 			</Link>

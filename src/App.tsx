@@ -2,9 +2,6 @@
 import { useState, useEffect } from "react";
 import StartPage from "./components/StartPage";
 import PlayZone from "./components/PlayZone";
-// import PlayZone2 from "./components/PlayZone 2";
-// import PlayZone3 from "./components/PlayZone 3";
-// import PlayZone4 from "./components/PlayZone 4";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -36,9 +33,9 @@ function App() {
 
 
   const changeCurrentPlayer = () => {
-    if (turn < player) {
+    if (turn < choosePlayer ) {
       setTurn((prevTurn) => prevTurn + 1);
-    } else if (turn === player) {
+    } else if (turn === choosePlayer) {
       return setTurn(1);
     }
   };
@@ -163,6 +160,7 @@ function App() {
             player={player}
             turn={turn}
             createPlayers={createPlayers}
+            choosePlayer = {choosePlayer}
           />} />
 
         </Routes>
