@@ -5,7 +5,7 @@ const StartPage = ({
 	choosePlayer,
 	 setPlayer, 
 	 setChoosePlayer, 
-	//  newGame,
+	 newGame,
 	 }) => {
 	const playerChoosen = (id) => {
 		setChoosePlayer(id);
@@ -73,8 +73,12 @@ const StartPage = ({
 				</button>
 			</div>
 
-			{play()}
-
+			
+			<button
+          className="new-game-btn"
+          onClick={() => newGame()}>
+          {play()}
+        </button>
 		</div>
 	);
 };

@@ -15,7 +15,7 @@ function App() {
   const [turn, setTurn] = useState(1);
   const [player, setPlayer] = useState(4);
   const [includes, setIncludes] = useState(false);
-  //  const [frezzed, setFrezzed] = useState(turn === 1);
+  
 
 
 
@@ -28,11 +28,11 @@ function App() {
     setIncludes(false);
   }
 
-  console.log(count);
-  console.log(turn);
-  console.log(player);
-  console.log(includes);
-  console.log(choosePlayer);
+  // console.log(count);
+  // console.log(turn);
+  // console.log(player);
+  // console.log(includes);
+  // console.log(choosePlayer);
 
 
   const changeCurrentPlayer = () => {
@@ -144,7 +144,7 @@ function App() {
             setChoosePlayer={setChoosePlayer}
             choosePlayer={choosePlayer}
             setPlayer={setPlayer}
-          // newGame = {newGame}
+          newGame = {newGame}
           />} />
 
           <Route path="/PlayZone" element={<PlayZone
