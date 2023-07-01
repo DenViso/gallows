@@ -98,7 +98,7 @@ const PlayZone = ({
 			<Link
 				className="back"
 				to="/"
-				// onClick={() => newGame()}
+			
 			>
 				Back
 			</Link>
