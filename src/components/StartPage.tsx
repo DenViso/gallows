@@ -1,13 +1,21 @@
 // import { useState } from "react";
 import { Link } from "react-router-dom";
 
+type PropsStartPage ={
+	choosePlayer:number;
+	setPlayer:(player:number) => void;
+	setChoosePlayer:(ChoosenPlayer:number) =>void;
+	newGame:() => void;
+
+}
 const StartPage = ({ 
 	choosePlayer,
-	 setPlayer, 
-	 setChoosePlayer, 
-	 newGame,
-	 }) => {
-	const playerChoosen = (id) => {
+	setPlayer, 
+	setChoosePlayer, 
+	newGame,
+}:PropsStartPage) => {
+
+	const playerChoosen = (id:number) => {
 		setChoosePlayer(id);
 		setPlayer(id);
 		// newGame();
@@ -78,7 +86,7 @@ const StartPage = ({
           className="new-game-btn"
           onClick={() => newGame()}>
           {play()}
-        </button>
+      </button>
 		</div>
 	);
 };

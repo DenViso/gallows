@@ -16,13 +16,14 @@ function App() {
 
 
 
-  const newGame = () => {
+  const newGame = ():void => {
     setCurrentWord(["w", "o", "r", "d"]);
     setChoosenLetter([]);
     setCount(0);
     setTurn(1);
     setPlayer(4);
     setIncludes(false);
+    // return undefined;
   }
 
   // console.log(count);
@@ -70,7 +71,7 @@ function App() {
           {i + 1} player
         </button>)
     }
-    return button
+    return button;
   }
   // STYLING
   const letterStyling = (l: string): string => {
@@ -149,7 +150,7 @@ function App() {
             count={count}
             letterStyling={letterStyling}
             btnStyling={btnStyling}
-            newGame={newGame}
+            // newGame={newGame}
             choosenLeters={choosenLeters}
             manChangeStyling={manChangeStyling}
             setChoosenLetter={setChoosenLetter}

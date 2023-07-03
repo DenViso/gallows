@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+
+import { ReactNode, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const alphabet = [
@@ -30,12 +31,35 @@ const alphabet = [
 	"z",
 ];
 
+type PropsPlayZone = {
+	currentWord: string[];
+	count: number;
+	letterStyling: (l: string) => string;
+	btnStyling: (l: string) => string;
+	// newGame:void | boolean ;
+	manChangeStyling: () => string | undefined;
+	setChoosenLetter: (l: string[]) => void;
+	choosenLetter: string[];
+	setCount: (count: number) => void;
+	player: number;
+	turn: number;
+	setTurn: (turn: number) => void;
+	changeCurrentPlayer: () => void;
+	createPlayers: () => ReactNode;
+	choosenLeters: (letter: string) => void;
+	choosePlayer: number;
+
+}
+// interface createPlayers {
+
+// }
+
 const PlayZone = ({
-	currentWord,
+	currentWord ,
 	count,
 	letterStyling,
 	btnStyling,
-	newGame,
+	// newGame,
 	manChangeStyling,
 	setChoosenLetter,
 	choosenLetter,
@@ -47,12 +71,12 @@ const PlayZone = ({
 	createPlayers,
 	choosenLeters,
 	choosePlayer,
-}) => {
+}: PropsPlayZone) => {
 
 	const nav = useNavigate();
 
 	useEffect(() => {
-		if (choosePlayer === 0) {
+		if (choosePlayer === 0){
 			nav ("/");
 		}
 	}, []);
@@ -60,7 +84,7 @@ const PlayZone = ({
 	return (
 		<div className="wrapper">
 			<div className="word-section">
-				{currentWord.map((letter) => {
+				{currentWord.map((letter:string)=> {
 					return (
 						<h2 key={letter} className={letterStyling(letter)}>
 							{letter}
