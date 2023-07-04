@@ -59,15 +59,15 @@ const PlayZone = ({
 	count,
 	letterStyling,
 	btnStyling,
-	// newGame,
+
 	manChangeStyling,
-	setChoosenLetter,
-	choosenLetter,
-	setCount,
-	player,
-	turn,
-	setTurn,
-	changeCurrentPlayer,
+	// setChoosenLetter,
+	// choosenLetter,
+	// setCount,
+	// player,
+	// turn,
+	// setTurn,
+	// changeCurrentPlayer,
 	createPlayers,
 	choosenLeters,
 	choosePlayer,
@@ -83,6 +83,7 @@ const PlayZone = ({
 
 	return (
 		<div className="wrapper">
+			
 			<div className="word-section">
 				{currentWord.map((letter:string)=> {
 					return (
@@ -94,8 +95,6 @@ const PlayZone = ({
 			</div>
 
 			<div className="player2">
-				{/* player */}
-
 				{createPlayers()}
 			</div>
 
@@ -111,21 +110,21 @@ const PlayZone = ({
 					);
 				})}
 			</div>
+
 			<div className="count-section ">
 				<h3 className="count">You have wrong letters {count}/9 </h3>
 			</div>
+
 			<div className="pic">
 				<div className="pic-main">
 					<img src={manChangeStyling()} alt="" className="man" />
 				</div>
 			</div>
-			<Link
-				className="back"
-				to="/"
-			
-			>
+
+			<Link	className="back" to="/">
 				Back
 			</Link>
+
 		</div>
 	);
 };

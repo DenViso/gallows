@@ -12,29 +12,25 @@ function App() {
   const [turn, setTurn] = useState(1);
   const [player, setPlayer] = useState(4);
   const [includes, setIncludes] = useState(false);
-  
 
 
 
-  const newGame = ():void => {
+
+  const newGame = (): void => {
     setCurrentWord(["w", "o", "r", "d"]);
     setChoosenLetter([]);
     setCount(0);
     setTurn(1);
     setPlayer(4);
     setIncludes(false);
-    // return undefined;
+
   }
 
-  // console.log(count);
-  // console.log(turn);
-  // console.log(player);
-  // console.log(includes);
-  // console.log(choosePlayer);
+
 
 
   const changeCurrentPlayer = () => {
-    if (turn < choosePlayer ) {
+    if (turn < choosePlayer) {
       setTurn((prevTurn) => prevTurn + 1);
     } else if (turn === choosePlayer) {
       return setTurn(1);
@@ -142,7 +138,7 @@ function App() {
             setChoosePlayer={setChoosePlayer}
             choosePlayer={choosePlayer}
             setPlayer={setPlayer}
-          newGame = {newGame}
+            newGame={newGame}
           />} />
 
           <Route path="/PlayZone" element={<PlayZone
@@ -161,7 +157,7 @@ function App() {
             player={player}
             turn={turn}
             createPlayers={createPlayers}
-            choosePlayer = {choosePlayer}
+            choosePlayer={choosePlayer}
           />} />
 
         </Routes>
