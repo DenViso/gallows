@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/gallows/static/css/main.970b7f60.css",
+    "main.js": "/gallows/static/js/main.7d67568a.js",
+    "index.html": "/gallows/index.html",
+    "main.970b7f60.css.map": "/gallows/static/css/main.970b7f60.css.map",
+    "main.7d67568a.js.map": "/gallows/static/js/main.7d67568a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.970b7f60.css",
+    "static/js/main.7d67568a.js"
+  ]
+}
