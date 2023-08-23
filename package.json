@@ -1,6 +1,6 @@
 {
   "homepage": "http://denviso.github.io/gallows-v1.1",
-  "name": "gallows",
+  "name": "c",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -47,5 +47,9 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/node": "^20.3.3"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
